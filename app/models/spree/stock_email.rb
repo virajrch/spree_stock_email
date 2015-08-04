@@ -1,37 +1,37 @@
 class Spree::StockEmail < ActiveRecord::Base
 
-  belongs_to :product
+  belongs_to :variant
 
-  validates :product, presence: true
+  validates :variant, presence: true
   validates :email, presence: true, email: true
 
-  validate :unique_product_email
+  validate :unique_variant_email
 
-  def self.email_exists?(product, email)
-    exists?(sent_at: nil, product_id: product.id, email: email)
+  def self.email_exists?(variant, email)
+    exists?(sent_at: nil, variant_id: variant.id, email: email)
   end
 
-  def self.notify(product)
-    where(sent_at: nil, product_id: product.id).each { |e| e.notify }
+  def self.notify(variant)
+    where(sent_at: nil, variant_id: variant.id).each { |e| e.notify }
   end
 
   def email_exists?
-    self.class.email_exists?(product, email)
+    self.class.email_exists?(variant, email)
   end
 
   def notify
-    Spree::StockEmailsMailer.stock_email(self).deliver rescue nil
+    Spree::StockEmailsMailer.stock_email(self).deliver_later rescue nil
     mark_as_sent
   end
 
   private
 
-  def unique_product_email
+  def unique_variant_email
     errors.add :user, "already registered for notifications on this product" if email_exists?
   end
 
   def mark_as_sent
-    update_attribute :sent_at, Time.zone.now
+    touch(:sent_at)
   end
 
 end
