@@ -1,12 +1,11 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+es:
   spree:
     stock_email:
       email:
-          subject: "Products are back in stock!"
+          subject: "Productos de vuelta en stock!"
       notice:
-        error: There was a problem setting up your email alert. Please try again.
-        success: "We'll email you when %{variant.name} is back in stock!"
-
+        error: Hubo un problema configurando la alerta de correo. Por favor intente luego.
+        success: "Le notificaremos cuando el producto %{variant} este devuelta en stock"
