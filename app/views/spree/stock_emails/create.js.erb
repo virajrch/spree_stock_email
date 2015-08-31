@@ -1,0 +1,6 @@
+<% if flash[:success].present? %>
+	$('.input-group > #stock_notify_email').parent().html('<% flash[:success] %>');
+	$('.input-group > #stock_notify_email').val('');
+<% else %>
+	$('.input-group > #stock_notify_email').parent().html('<% flash[:info] %>');
+<% end %>

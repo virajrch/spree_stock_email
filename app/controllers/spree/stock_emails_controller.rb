@@ -16,6 +16,7 @@ class Spree::StockEmailsController < Spree::StoreController
     respond_to do |format|
       format.html { redirect_to(:back) }
       format.json { render json: { message: flash[:success] || flash[:notice] }, status: flash[:success] ? 200 : 400 }
+      format.js
     end
   end
 
