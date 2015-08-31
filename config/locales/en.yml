@@ -5,8 +5,8 @@ en:
   spree:
     stock_email:
       email:
-          subject: "Products are back in stock!"
+          subject: "Product is back in stock!"
       notice:
         error: There was a problem setting up your email alert. Please try again.
-        success: "We'll email you when %{variant.name} is back in stock!"
+        success: "We'll email you when this product is back in stock!"
 
