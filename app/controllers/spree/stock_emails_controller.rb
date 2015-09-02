@@ -8,7 +8,7 @@ class Spree::StockEmailsController < Spree::StoreController
 
     begin
       stock_email.save! unless stock_email.email_exists?
-      flash[:success] = Spree.t("stock_email.notice.success", variant: variant.name)
+      flash[:success] = Spree.t("stock_email.notice.success")
     rescue => e
       flash[:notice] = Spree.t("stock_email.notice.error")
     end
