@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.7'
   s.summary     = 'Send an email when a product is in stock.'
   s.description = 'Send an email when a product is in stock.'
-  s.required_ruby_version = '>= 2.2.0'
+  s.required_ruby_version = '>= 2.3.0'
 
   s.author    = 'Richard Hart'
   s.email     = 'richard@ur-ban.com'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.0.0'
+  s.add_dependency 'spree_core', '~> 3.2.0'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'
