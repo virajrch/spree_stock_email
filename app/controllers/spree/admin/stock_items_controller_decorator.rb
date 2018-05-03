@@ -1,7 +1,7 @@
 Spree::Admin::StockItemsController.class_eval do
 
-  before_filter :set_current_on_hand_value, only: :create
-  after_filter :send_stock_emails, only: :create
+  before_action :set_current_on_hand_value, only: :create
+  after_action :send_stock_emails, only: :create
 
   def set_current_on_hand_value
     @variant = Spree::Variant.find(params[:variant_id])
