@@ -2,7 +2,7 @@ class Spree::StockEmailsController < ApplicationController
 
   def create
     product = Spree::Product.find_by_id(params[:stock_email][:product])
-    redirect_back and return unless product
+    redirect_back(fallback_location: root_path) and return unless product
 
     stock_email = Spree::StockEmail.new
     stock_email.email = spree_current_user ? spree_current_user.email : params[:stock_email][:email]
