@@ -15,7 +15,7 @@ class Spree::StockEmailsController < ApplicationController
       flash[:notice] = "There was a problem setting up your email alert. Please try again."
     end
 
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
 end
