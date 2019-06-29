@@ -5,7 +5,7 @@ class Spree::StockEmailsController < ApplicationController
     redirect_back(fallback_location: root_path) and return unless product
 
     stock_email = Spree::StockEmail.new
-    stock_email.email = spree_current_user ? spree_current_user.email : params[:stock_email][:email]
+    stock_email.email = params[:stock_email][:email]
     stock_email.product = product
 
     begin
@@ -15,7 +15,11 @@ class Spree::StockEmailsController < ApplicationController
       flash[:notice] = "There was a problem setting up your email alert. Please try again."
     end
 
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html { redirect_to(:back) }
+      format.json { render json: { message: flash[:success] || flash[:notice] }, status: flash[:success] ? 200 : 400 }
+      format.js
+    end
   end
 
 end
