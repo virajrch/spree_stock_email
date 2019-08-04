@@ -1,22 +1,22 @@
 class Spree::StockEmail < ActiveRecord::Base
 
-  belongs_to :variant
+  belongs_to :product
 
-  validates :variant, presence: true
+  validates :product, presence: true
   validates :email, presence: true, email: true
 
-  validate :unique_variant_email
+  validate :unique_product_email
 
-  def self.email_exists?(variant, email)
-    exists?(sent_at: nil, variant_id: variant.id, email: email)
+  def self.email_exists?(product, email)
+    exists?(sent_at: nil, product_id: product.id, email: email)
   end
 
-  def self.notify(variant)
-    where(sent_at: nil, variant_id: variant.id).each { |e| e.notify }
+  def self.notify(product)
+    where(sent_at: nil, product_id: product.id).each { |e| e.notify }
   end
 
   def email_exists?
-    self.class.email_exists?(variant, email)
+    self.class.email_exists?(product, email)
   end
 
   def notify
@@ -26,7 +26,7 @@ class Spree::StockEmail < ActiveRecord::Base
 
   private
 
-  def unique_variant_email
+  def unique_product_email
     errors.add :user, "already registered for notifications on this product" if email_exists?
   end
 
