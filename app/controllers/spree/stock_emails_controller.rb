@@ -1,10 +1,10 @@
 class Spree::StockEmailsController < Spree::StoreController
 
   def create
-    variant = Spree::Variant.find_by_id(params[:stock_email][:variant])
+    product = Spree::Product.find_by_id(params[:stock_email][:product])
     stock_email = Spree::StockEmail.new
     stock_email.email = params[:stock_email][:email]
-    stock_email.variant = variant
+    stock_email.product = product
 
     begin
       stock_email.save! unless stock_email.email_exists?
