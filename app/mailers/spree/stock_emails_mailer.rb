@@ -4,7 +4,7 @@ module Spree
 
     def stock_email(stock_email)
       @stock_email = stock_email
-      mail to: @stock_email.email, subject: Spree.t("stock_email.email.subject", variant: stock_email.variant.name)
+      mail to: @stock_email.email, subject: Spree.t("stock_email.email.subject", product: stock_email.product.name)
     end
   end
 end
