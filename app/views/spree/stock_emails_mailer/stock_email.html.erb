@@ -11,7 +11,7 @@
           <h3 class="customerName">
             <%= Spree.t('stock_mailer.stock_email.hi_there') %>
           </h3>
-          <%= raw Spree.t('stock_mailer.stock_email.message_one', :product_name => link_to(@stock_email.variant.name, product_url(@stock_email.variant.product))) %>
+          <%= raw Spree.t('stock_mailer.stock_email.message_one', :product_name => link_to(@stock_email.product.name, product_url(@stock_email.product))) %>
           <br>
             <%= Spree.t('stock_mailer.stock_email.message_two') %>
           </br>
