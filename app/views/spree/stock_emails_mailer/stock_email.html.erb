@@ -119,7 +119,7 @@
                   <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
                     <tr>
                       <td valign="top" class="bodyContent">
-                        We're pleased to let you know that <%= link_to @stock_email.product.name, spree.product_path(product, utm_src: 'stock_email') %> is back in stock. Limited stock available. Hurry up! 
+                        We're pleased to let you know that <%= link_to @stock_email.product.name, spree.product_path(@stock_email.product, utm_src: 'stock_email') %> is back in stock. Limited stock available. Hurry up! 
                         
                         If you need help with sizes or have questions, please call, email, or chat and we'll do our best.
                       </td>
