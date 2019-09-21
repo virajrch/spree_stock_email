@@ -109,6 +109,7 @@
   </head>
   <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     <center>
+      <%= render partial: "spree/shared/base_mailer_header" %>
       <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
         <tr>
           <td align="center" valign="top">
@@ -118,7 +119,9 @@
                   <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
                     <tr>
                       <td valign="top" class="bodyContent">
-                        We're pleased to let you know that <%= @stock_email.product.name %> is back in stock  — if you need help with sizes or have questions, please call, email, or chat and we'll do our best.
+                        We're pleased to let you know that <%= link_to @stock_email.product.name, spree.product_path(product, utm_src: 'stock_email') %> is back in stock. Limited stock available. Hurry up! 
+                        
+                        If you need help with sizes or have questions, please call, email, or chat and we'll do our best.
                       </td>
                     </tr>
                   </table>
@@ -129,6 +132,7 @@
           </td>
         </tr>
       </table>
+      <%= render partial: "spree/shared/base_mailer_footer" %>
     </center>
   </body>
 </html>
